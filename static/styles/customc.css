@@ -1,0 +1,42 @@
+.navbar{
+  /* background-image: linear-gradient(to right, #ab241d, #d9664c);*/
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100; /* Adjust the z-index as needed */
+}
+
+
+.navbar-nav li a {
+color:#e31912;
+font-size:15px;
+font-weight: bold;
+padding: 20px;
+margin-bottom: 20px;
+}
+
+.navbar-header a {
+color:#201073;
+font-style:italic;
+font-family:fantasy;
+font-size:20px;
+display: inline-block;
+padding: 10px 20px; /* Adjust padding as needed */
+background-color: #201073;
+color: #fff;
+text-decoration: none;
+border: none;
+border-radius: 50%;
+font-weight: bold;
+margin-bottom: 30px;
+
+}
+/*
+.navbar-nav li a:hover {
+  background-color: blue; /* Change to your desired hover color */
+}
+*/
+
+.

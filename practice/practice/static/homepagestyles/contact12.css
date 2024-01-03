@@ -1,0 +1,82 @@
+.contact {
+    height: auto;
+    width: 100%;
+}
+
+.contact-container {
+     max-width: 1500px;
+     margin-top: 70px;
+}
+
+.contact-address {
+     margin-left: 300px;
+}
+
+.contact-address h2{
+     font-weight: bold;
+     font-family: verdana;
+     color: black;
+
+}
+
+.contact-details ul{
+     margin-left: -38px;
+     list-style: none;
+     margin-top: 25px;
+     color: black;
+     line-height: 30px;
+}
+
+.message {
+     position: relative;
+     margin-left: 700px;
+     margin-top: -180px;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-control {
+     border: 1px solid;
+     border-radius: 1px;
+     color: black;
+     font-size: 10px;
+     font-weight: 600;
+     height: 40px;
+     letter-spacing: 0.1em;
+     padding-left: 10px;
+     margin: 0 0 25px 0;
+     line-height: 14px;
+     width: 250px;
+}
+#name{
+     width: 250px;
+}
+
+#email {
+     margin-left: 275px;
+     margin-top: -65px;
+     width: 250px;
+}
+
+#subject {
+      width: 525px;
+}
+
+#textarea {
+      width: 525px; /* Adjust width as desired */
+      height: 150px; /* Adjust height as desired */
+}
+
+#sendmessage {
+      width: 525px;
+}
+
+#successmessage {
+      display:none;
+      font-size: 5px;
+      color: blue;
+}

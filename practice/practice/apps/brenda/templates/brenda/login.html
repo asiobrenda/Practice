@@ -1,0 +1,35 @@
+{% extends 'base_practice.html' %}
+{% load static %}
+
+ {% block navigation_links %}
+ {% endblock navigation_links %}
+
+{% block navigation_links1 %}
+ <li class="login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+{% endblock navigation_links1 %}
+
+{% block additional_styles %}
+  <link href="{% static 'styles/login_style4.css' %}" rel="stylesheet">
+{% endblock additional_styles %}
+
+<br>
+{% block body %}
+
+<div class="message">
+  <br>
+
+    <h1>Welcome</h1>
+    <p>
+        You can log in here!
+    </p>
+    <h3>Login</h3>
+    </div>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock body %}
+

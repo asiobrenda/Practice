@@ -1,0 +1,47 @@
+.services h1 {
+     text-align: center;
+     font-weight: bold;
+     font-size: 40px;
+     padding-top: 10px;
+     color: black;
+     font-family: verdana;
+}
+
+/* Add this CSS for the box shadow */
+.row {
+    display: flex; /* To apply the shadow properly */
+    border-radius: 200px; /* Add rounded corners if desired */
+    margin-left: 380px;
+    margin-top: 40px;
+    max-width: 300px;
+}
+
+.service-container {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust the shadow values as needed */
+    display: flex;
+    flex-direction: column; /* Arrange skills vertically */
+    align-items: flex-start; /* Align skills to the left */
+    margin: 15px;
+}
+
+/* Optional: Add hover effect */
+.consulting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 130px;
+}
+
+.service {
+     padding-top: 10px;
+     text-align : center;
+     padding-left: 50px;
+    /* color: #FF007F;*/
+    color: black;
+}
+
+.describe {
+     padding-top: 10px;
+     margin-left: auto;
+     padding-left: 20px;
+}

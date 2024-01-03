@@ -1,0 +1,160 @@
+{% extends 'base_tabs.html' %}
+{% load static %}
+
+
+{% block navigation_links %}
+{% endblock navigation_links %}
+
+
+{% block additional_styles %}
+<link href="{% static 'styles/logout6.css' %}" rel="stylesheet">
+<link href="{% static 'tabs/tab1.css' %}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+{% endblock additional_styles %}
+
+
+{% block body %}
+<br>
+<br>
+<h1 style="margin-top:100px; text-align:center">{{varx}}</h1>
+<br>
+<br>
+<button onclick="tabName(event)">Add tab</button>
+<br>
+<br>
+<div class="tab" id="tab_button">
+  {% for t in tabs %}
+  <button class="tablinks" onclick="openCity(event, '{{t.color}}')" tab_id="{{t.id}}">{{t.city_name}}</button>
+  {% endfor %}
+</div>
+
+{% for t in tabs %}
+<div id="{{t.id}}" class="tabcontent">
+  <h3>{{t.title}}</h3>
+  <p>{{t.description}}</p>
+</div>
+{% endfor %}
+<br>
+<br>
+<br>
+<div id="body">
+
+</div>
+<br>
+
+<script>
+
+  url = "{% url 'tabs:get_tab_name' %}";
+ //alert(url)
+
+  function tabName(evt){
+     tab_name = prompt("Enter the tab-name")
+     dic = {'tab_name_':tab_name, 'title':'title', 'description':'description', 'color':'color'}
+     if(tab_name==""){alert("User must enter tab_name"); return}
+     //alert(tab_name)
+    $.post(url,
+    {
+      'get_tab_name': JSON.stringify(dic)
+    },
+    function(data){
+    //alert(4444)
+      //alert(JSON.stringify(data));
+      var name_id = data['tab_name_id']
+      //alert(name)
+      create_btn(tab_name, name_id)
+    });
+
+  }
+
+  var div1 = document.createElement("div")
+  document.getElementById('body').appendChild(div1)
+
+  function openCity(evt, color) {
+  var tab = evt.target;
+  var tab_ = tab.getAttribute(tab)
+  //alert(color)
+  //alert(city)
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+   var tab_ = tab.getAttribute("tab_id")
+   //alert(tab_)
+  document.getElementById(tab_).style.display = "block";
+  //alert(333333)
+  evt.currentTarget.className += " active";
+
+
+  // alert(div1)
+   div1.setAttribute("style", "width:200px; height:200px; background-color:" + color + "; position:absolute")
+   div1.setAttribute("id", tab_)
+
+
+
+    div1.onmousedown = function(e) {
+         pos1 = e.clientX;
+         pos2 = e.clientY;
+
+
+         document.onmousemove = function(e){
+              pos3 = pos1 - e.clientX;
+              pos4 = pos2 - e.clientY;
+
+              pos1 = e.clientX;
+              pos2 = e.clientY;
+
+
+              div1.style.left = (div1.offsetLeft - pos3) + 'px';
+              div1.style.top = (div1.offsetTop - pos4) + 'px';
+
+         }
+    };
+   div1.onmouseup = function(e) {
+           document.onmousemove = null;
+           document.onmousedown = null;
+    }
+ }
+function create_btn(tab_name=tab_name, tab_id=name_id){
+    // alert(tab_name)
+     var button = document.createElement('button');
+     button.setAttribute("class", "tablinks");
+     button.setAttribute("onclick", "openCity(event, 'purple')");
+     button.setAttribute("tab_id", "tab_id");
+     button.innerHTML = tab_name;
+     var tab = document.getElementById('tab_button');
+     tab.appendChild(button)
+
+
+}
+</script>
+
+<script src="{% static 'js/js.cookie.min.js' %}"></script>
+<script type="text/javascript">
+
+     var csrftoken = Cookies.get('csrftoken');
+            function csrfSafeMethod(method) {
+              // these HTTP methods do not require CSRF protection
+              return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+            $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+              }
+            });
+
+  $(document).ready(function () {
+
+  });
+    </script>
+
+{% endblock body %}
+
+

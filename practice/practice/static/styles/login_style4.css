@@ -1,0 +1,78 @@
+/* Remove background image from the login page */
+.bg-image {
+  background-image: url('../styles/image/asio1.png');
+   /* Set a background color for the login page */
+}
+
+/* Add additional styles for your login page elements */
+
+
+.bg-text {
+  background: none; /* Fallback color */
+  background: none; /* Black w/opacity/see-through */
+  color: none;
+  font-weight: none;
+  border: none;
+  position: none;
+  top: none;
+  left: none;
+  transform: none;
+  z-index: none;
+  width: none;
+  padding: none;
+  text-align: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+form {
+  background-color: #f18f66;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+input {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.message {
+  text-align: center; /* Center-align the content */
+  padding-top: 100px
+}
+
+.message h1 {
+  color:  #104d38; /* Heading color */
+  font-size: 24px; /* Heading font size */
+}
+
+.message h3 {
+  color:  #104d38; /* Heading color */
+  font-size: 20px; /* Heading font size */
+}
+
+/* Style the paragraph */
+.message p {
+  color:  ##10438d; /* Paragraph text color */
+  font-size: 16px; /* Paragraph font size */
+  margin: 10px 0; /* Add margin top and bottom */
+}
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+

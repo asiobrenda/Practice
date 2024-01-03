@@ -1,0 +1,33 @@
+.toast-wrapper {
+    height: 5px; /* Adjust the height based on your toast height */
+}
+
+#toast{
+      margin-left: 800px;
+      color: purple;
+      padding: 10px 15px;
+      display: none;
+}
+
+
+
+
+
+/*
+#snackbar {
+  */
+/*display: none;*//*
+
+  position: fixed;
+  left: 60%;
+  transform: translateX(-50%);
+  padding: 20px 40px;
+  background-color: #32CD32; */
+/* Green color *//*
+
+  color: #fff;
+  border-radius: 5px;
+  z-index: 9999;
+  top: 500px;
+}
+*/

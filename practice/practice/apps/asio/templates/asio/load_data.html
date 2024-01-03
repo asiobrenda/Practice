@@ -1,0 +1,34 @@
+{% extends 'base_asio.html' %}
+{% load static %}
+
+
+{% block navigation_links %}
+{% endblock navigation_links %}
+
+ {% block navigation_links11 %}
+   <li><a href="{% url 'asio:home' %}"><span class="bx bx-log-out" style='color:#0e0d0d'></span> Ueconomics </a></li>
+ {% endblock navigation_links11 %}
+
+
+{% block additional_styles %}
+ <link href="{% static 'styles/logout5.css' %}" rel="stylesheet">
+{% endblock additional_styles %}
+
+
+{% block body %}
+
+    <div class="container1">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <h1>{{varx}}</h1>
+        <br>
+        <br>
+        <h4>Both export and import Data was successfully uploaded in the database</h4>
+{% endblock body %}
+    </div>
+

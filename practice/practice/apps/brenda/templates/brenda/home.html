@@ -1,0 +1,350 @@
+{% extends 'base_practice.html' %}
+{% load static %}
+{% load thumbnail %}
+
+
+{% block additional_styles %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="{% static 'homepagestyles/aboutme1.css' %}" rel="stylesheet">
+  <link href="{% static 'homepagestyles/servicesd.css' %}" rel="stylesheet">
+  <link href="{% static 'homepagestyles/portfolio4.css' %}" rel="stylesheet">
+  <!--<link href="{% static 'homepagestyles/testimonial5.css' %}" rel="stylesheet"> -->
+  <link href="{% static 'homepagestyles/contact12.css' %}" rel="stylesheet">
+  <link href="{% static 'homepagestyles/toast1.css' %}" rel="stylesheet">
+  <!--<link href="{% static 'homepagestyles/aboutme1.css' %}" rel="stylesheet"> -->
+  <link href="{% static 'homepagestyles/newtestimonialf.css' %}" rel="stylesheet">
+  <link href="{% static 'homepagestyles/footer8.css' %}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css"/>
+
+{% endblock additional_styles %}
+
+
+{% block sub_body %}
+
+<div class="aboutme" id="profile">
+  <div class="container">
+    <!-- div for column that has profile and skills -->
+    <div class="column1">
+        {% for b in bio %}
+        <!-- div for about me picture and profile -->
+        <div class="row-profile">
+            <div class="about-img">
+                <p>{% thumbnail b.image "800x600" crop as ph %}
+                    <img src="{{ph.url}}" width="200" height="200">
+                </p>
+            </div>
+            <div class="about-info">
+                <p><span class="title-s">Name: </span> <span>{{b.name}}</span></p>
+                <p><span class="title-s">Profile:</span> <span>{{b.profile}}</span></p>
+                <p><span class="title-s">Email: </span> <span>{{b.email}}</span></p>
+                <p><span class="title-s">Phone: </span> <span>{{b.phone}}</span></p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- div for skills -->
+
+    <!-- SECTION FOR SKILLS -->
+        <div class="skills">
+             <span class="title">Skill</span><br>
+           {% for s in skills %}
+           <div class="skill-item">
+                <span class="skill-info">{{ s.name }} {{ s.percentage }}%</span>
+           </div>
+           <div class="progress">
+               <div class="progress-bar" style="width: {{ s.percentage }}%;"></div>
+           </div>
+            {% endfor %}
+        </div>
+    </div>
+
+        <div class="decription">
+            <div class="detail">
+                <h1><span>About me</span></h1>
+            </div>
+            <div class="profile">
+               <p>I'm Asio Brenda, a multidisciplinary professional blending software engineering,
+                statistics, and economics. I excel in leveraging data-driven insights to create innovative
+                 solutions.
+               </p>
+
+                <p>
+                  Outside my professional endeavors, I have a passion for hobbies that enrich my life.
+                  I love to explore new worlds through reading, embark on adventures while traveling,
+                  and stay active by playing badminton.
+                </p>
+            </div>
+        </div>
+  </div>
+</div>
+
+     <!-- SECTION FOR SERVICES -->
+<div class="services">
+    <h1>SERVICES</h1>
+    <div class="row">
+        {% for s in service %}
+        <div class="service-container">
+        <div class="service-ico">
+                <p><span>
+                    {% thumbnail s.image "300x900" crop as wb %}
+                    <img src="{{wb.url}}"  height="300"  width="200" >
+                </span>
+                </p>
+        </div>
+        <div class="consulting">
+           <div class="service">
+               <strong>{{s.service}}</strong>
+           </div>
+            <div class="describe">
+              <p>{{s.description}}</p>
+            </div>
+
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
+</div>
+<!-- END OF SERVICE SECTION -->
+
+<!-- SECTION FOR PORTFOLIO -->
+<div>
+    <div class="portfolio">
+        <h1>My PORTFOLIO</h1>
+    </div>
+    <div class="Mywork">
+        <div class="justify-work">
+             <ul id="portfolio-filters">
+              <li  class="filter-active" data-filter="*">All</li>
+              <li data-filter="app">App</li>
+              <li data-filter="card">Card</li>
+              <li data-filter="web">Web</li>
+            </ul>
+        </div>
+        <div class="work-portfolio">
+            {% for p in portfolio %}
+            <div class="image-portfolio" data-category="{{p.category}}">
+                {% thumbnail p.image "1200x1000" crop as pf %}
+                    <img src="{{pf.url}}"  height="450"  width="600" >
+                <div class="portfolio-info">
+                    <h4>{{p.header_four}}</h4>
+                    <i>{{p.italics}}</i>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="work-portfolio">{% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+<!-- END OF PORTFOLIO SECTION -->
+
+<!-- BEGINNING OF TESTIMONIAL SECTION -->
+<!--<div class="testimonial-wrapper">
+     <div class="testimonial-container">
+         <div class="image-testimonial">
+             <img src="{% static 'styles/image/asio7.jpg' %}" class="avatar-image">
+         </div>
+         <div class="description">
+             <p> I have worked with Asio Brenda</p>
+             <p>- Asio Brenda</p>
+         </div>
+         <div class="dot-pagination">
+              <span class="dot"></span>
+              <span class="dot"></span>
+         </div>
+
+     </div>
+
+</div>
+-->
+
+
+ <!-- BEGINNING OF TESTIMONIAL SECTION 2 -->
+<div class="testimonial">
+    <div class="testimonial-container">
+        <div class="testimonial-title">
+             <h2>TESTIMONIALS</h2>
+            <p>
+                Great pains, on the other hand, arise from the necessity to follow something, and that's
+                why someone might avoid it. It is not that there are some things that are certain to be admired.
+                It is that there is no one who prevents it from being used. It's because some people might avoid
+                these things, which are in these very duties.
+            </p>
+        </div>
+    </div>
+     <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for t in testimonial %}
+      <div class="swiper-slide">
+               <div class="testimonial-item">
+                   <p>
+                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                       {{t.description}}
+                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                   </p>
+               </div>
+                <div class="testimonial-img">
+                        {% thumbnail t.image "1000x800" crop as tb %}
+                       <img src="{{tb.url}}" class="avatar-image">
+               </div>
+                 <div class="writings">
+                 <h3>{{t.name}}</h3>
+                 <h4>{{t.title}}</h4>
+                </div>
+      </div>
+        {% endfor %}
+    </div>
+     <div class="swiper-pagination"></div>
+  </div>
+
+</div>
+<!-- END OF TESTIMONIAL SECTION -->
+<hr>
+
+
+<!--toast window notification-->
+<!--<div id="snackbar">Some text some message..</div>-->
+<div class="toast-wrapper">
+<h5 id="toast">Your data was sent successfully!</h5>
+</div>
+
+<!--BEGINNING OF  CONTACT SECTION -->
+<div class="contact">
+    <div class="contact-container">
+        <div class="contact-address">
+             <h2>GET IN TOUCH</h2>
+            <div class="contact-details">
+            <ul>
+                <li>
+                    <span>23 Main, Street</span>
+                </li>
+                <li>
+                    <span>Kampala, Uganda</span>
+                </li>
+                <li>
+                    <span>+256 781-344-938</span>
+                </li>
+                <li>
+                    <span>asiobrenda01@gmail.com</span>
+                </li>
+
+            </ul>
+           </div>
+        </div>
+
+<div class="message" id="contact">
+    <form id="myform" method="POST" action="">
+        {% csrf_token %}
+        <div class="form-inine">
+            <input type="text" name="fname" id="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-inline">
+            <input type="email" name="email1" id="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div>
+            <input type="text" name="subject1" id="subject" class="form-control" placeholder="Subject" required>
+        </div>
+        <div>
+            <textarea name="message1" id="textarea" class="form-control" placeholder="Message" required></textarea>
+        </div>
+        <div>
+            <input type="submit" onclick="send_message(event)" id="sendmessage" class="form-control" value="Send Message" required>
+        </div>
+    </form>
+</div>
+ </div>
+</div>
+
+<!--Beginning of footer-->
+<footer id="footer">
+    <div class="footer_container">
+          <h3>Asio Brenda</h3>
+         <h5>She Writes Her Future in Code which shapes a boundless future of innovation and empowerment</h5>
+     <!--    <p>Empowering Women in Tech, One Line at a Time</p>-->
+<!--
+    <p>She Writes Her Future in Code</p>
+-->
+        <div class="social_links">
+            <a href="https://twitter.com/home" target="_blank" class="twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" class="facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/brenda_5232/" target="_blank" class="instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/feed/" target="_blank" class="linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+        <div class="copyright">
+        © Copyright <strong><span>Asio</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">Academy City</a>
+      </div>
+    </div>
+    <button onclick="scrollToTop()" id="scrollBtn">
+           <i class="fas fa-arrow-up"></i>
+    </button>
+
+</footer>
+
+<!--End of footer-->
+
+
+<!-- JavaScript for filtering -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="{% static 'javascript/portfolio2.js' %}"></script>
+  <!-- <script src="{% static 'javascript/testimonial2.js' %}"></script> -->
+  <!--<script src="{% static 'javascript/swiper-bundle.min.js' %}"></script>-->
+  <script src="{% static 'javascript/swiperslide10.js' %}"></script>
+  <script src="{% static 'javascript/move.js' %}"></script>
+<!--  <script src="{% static 'javascript/contactaa.js' %}"></script>-->
+  <script src="{% static 'js/js.cookie.min.js' %}"></script>
+
+<script>
+{% block domready %}
+var link_post_contact_us = '{% url "brenda:Contact" %}';
+
+function send_message(evt) {
+  evt.preventDefault();
+  var name_ = document.getElementById('name').value;
+  var email_ = document.getElementById('email').value;
+  var subject_ = document.getElementById('subject').value;
+  var message_ = document.getElementById('textarea').value;
+
+  $.post(link_post_contact_us, {
+      'name': name_,
+      'email': email_,
+      'subject': subject_,
+      'message': message_
+    },
+    function(data) {
+      if (data['status'] === 'ko') {
+        alert(data['message']); // Alert for incomplete form data
+        return;
+      }
+      if (data['status'] === 'ok') {
+        //alert(data['message']); // Alert for successful data submission
+        document.getElementById('myform').reset();
+        var toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(function() {
+          toast.style.display = 'none';
+         // alert('message sent')
+        }, 1000);
+      }
+    }
+  );
+}
+{% endblock %}
+</script>
+
+{% endblock sub_body %}

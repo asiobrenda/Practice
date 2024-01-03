@@ -1,0 +1,80 @@
+{% extends 'base_asio.html' %}
+{% load static %}
+
+
+{% block navigation_links %}
+{% endblock navigation_links %}
+
+ {% block navigation_links11 %}
+   <li><a href="{% url 'asio:load-data' %}"><span class="bx bx-log-out" style='color:#0e0d0d'></span> Load Data </a></li>
+ {% endblock navigation_links11 %}
+
+
+{% block additional_styles %}
+ <link href="{% static 'styles/logout6.css' %}" rel="stylesheet">
+ <link href="{% static 'ueconomics/style13.css' %}" rel="stylesheet">
+ <link href="{% static 'ueconomics/tableab.css' %}" rel="stylesheet">
+ <link href="{% static 'ueconomics/mychart.css' %}" rel="stylesheet">
+ <link href="{% static 'ueconomics/button.css' %}" rel="stylesheet">
+ <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'>
+{% endblock additional_styles %}
+
+
+{% block body %}
+    <br>
+    <br>
+    <div class="container1">
+    <h1>{{varx}}</h1>
+    </div>
+<br>
+<br>
+<div id="myChart"
+    style="position: fixed;z-index:10;width:35%;height:47%;padding:2px;right:3%;top:58%;">
+
+</div>
+<br>
+<div class="button">
+    <button class="button-10"  id="lines-btn" onclick="change_chart_type(event, type='lines')" style="color:blue">Lines</button>
+    <button class="button-10"  id="bars-btn" onclick="change_chart_type(event, type='bars')" >Bars</button>
+    <button class="button-10"  id="pies-btn" onclick="change_chart_type(event, type='pies')" >Pies</button>
+    <button class="button-10"  id="histos-btn" onclick="change_chart_type(event, type='histos')" >Histos</button>
+</div>
+<div class="tab">
+    {% for s in source %}
+  <button class="tablinks" onclick="openCity(event, '{{s.type}}')" id="defaultOpen">{{s.type}}</button>
+    {% endfor %}
+</div>
+
+{% for s in source %}
+<div id="{{s.type}}" class="tabcontent" onclick="get_chart_data(event)">
+  <h3>{{s.type}}</h3>
+  <table >
+      <tr>
+          <th>sitc2</th>
+           <th>Product</th>
+          {% for y in year|slice:":5" %}
+               <th>{{ y }}</th>
+          {% endfor %}
+      </tr>
+      {% for p in product %}
+      <tr id="{{p.id}}">
+          <td>{{p.sitc2}}</td>
+          <td id="{{s}}_{{p.id}}">{{p.description}}</td>
+          {% for v in p.product_year_data.all %}
+          {% if v.source == s %}
+           <td id="{{s}}_{{p.id}}_{{v.year}}">{{ v.value }}</td>
+          {% endif %}
+          {% endfor %}
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+{% endfor %}
+
+
+<script src="{% static 'ueconomics/javascript/tabsa.js' %}"></script>
+<script src="{% static 'ueconomics/javascript/Charts3.js' %}"></script>
+
+{% endblock body %}
+
+

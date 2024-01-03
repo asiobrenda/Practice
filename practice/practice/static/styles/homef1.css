@@ -1,0 +1,74 @@
+body, html {
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image1 {
+  /* The image used */
+    background: url('../styles/image/asio5.jpg');
+
+  /* Add the blur effect */
+/*
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+ */
+
+  /* Full height */
+  /* Set the height to cover only the top half */
+  height: 70%; /* Adjust the percentage as needed */
+
+  /* Center and scale the image nicely */
+  position: relative;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+/* Position text in the middle of the page/image */
+/**** .bg-text {
+
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+  color: #201073;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 60%;
+  padding: 20px;
+  text-align: center;
+  font-style:italic;
+  font-family:fantasy;
+} ****/
+
+.mytext {
+  color: #201073;
+  font-weight: bold;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 60%;
+  padding: 20px;
+  text-align: center;
+  font-style:italic;
+  font-family: fantasy;
+ /** font-family: "Sofia", fantasy; **/
+  font-size: 40px;
+}
+
+.mytext h1{
+   color: #ff2800;
+   font-size: 60px;
+}

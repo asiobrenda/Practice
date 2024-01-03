@@ -1,0 +1,30 @@
+{% extends 'base_practice.html' %}
+{% load static %}
+
+
+{% block navigation_links %}
+{% endblock navigation_links %}
+
+ {% block navigation_links11 %}
+   <li><a href="{% url 'brenda:logout' %}"><span class="bx bx-log-out" style='color:#0e0d0d'></span> Log Out </a></li>
+ {% endblock navigation_links11 %}
+
+
+{% block additional_styles %}
+ <link href="{% static 'styles/logout5.css' %}" rel="stylesheet">
+{% endblock additional_styles %}
+
+
+{% block body %}
+
+    <div class="container1">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <h1>Welcome to the logout page</h1>
+    <h3>You have successfully logged out</h3>
+    </div>
+
+{% endblock body %}

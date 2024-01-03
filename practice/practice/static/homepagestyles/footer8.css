@@ -1,0 +1,103 @@
+#footer {
+    background: #f7f8f9;
+    color: #45505b;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+.footer_container {
+    margin-top: 30px;
+}
+
+.footer_container h3 {
+    font-size: 36px;
+    font-weight: 700;
+    position: relative;
+    font-family: verdana;
+    padding: 0;
+    margin: 0 0 18px 0;
+    color: black;
+}
+
+.footer_container h3:hover,
+.footer_container h5:hover {
+    color: red;
+}
+
+
+.footer_container h5 {
+    font-size: 13px;
+    font-style: italic;
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: #2c4964;
+}
+
+/* Styling for the social links */
+.social_links {
+    margin-top: 40px;
+}
+
+.social_links a {
+    font-size: 12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #0563bb;
+    color: #fff;
+    line-height: 1;
+    padding: 15px;
+    margin: 0 2px;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    transition: background 0.3s; /* Adding a transition effect for the background */
+    text-decoration: none;
+}
+
+/* Remove underlines from links */
+.social_links a:hover {
+    text-decoration: none;
+}
+
+.copyright {
+    margin-top: 35px;
+
+}
+
+.credits {
+    font-size: 12px;
+}
+
+#scrollBtn {
+    font-size: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #0563bb;
+    color: #fff;
+    line-height: 1;
+    padding: 15px;
+    position: fixed;
+    z-index: 99;
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 20px;
+    border: 2px solid transparent; /* Add a transparent border */
+    /* transition: background 0.3s;  Adding a transition effect for the background */
+    pointer-events: auto;
+  /*  display: none;*/
+
+}
+
+#scrollBtn:hover {
+    /* Set cursor to pointer */
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}

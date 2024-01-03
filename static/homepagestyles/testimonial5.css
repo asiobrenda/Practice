@@ -1,0 +1,36 @@
+
+.testimonial-wrapper {
+    margin-top: 50px;
+}
+
+.testimonial-container {
+    background-color: #E49BA8;
+    width: 900px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.image-testimonial img {
+    border-radius: 60%;
+    width: 180px;
+    margin-top: 50px; /* Adjust this value as needed */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 40px;
+}
+
+/* Add this CSS to style your avatar image */
+.avatar-image {
+    width: 180px; /* Set your desired width and height */
+    height: 180px;
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fills the circular container */
+}
+
+.testimonial-container .description {
+     padding-top: 10px;
+     text-align: center;
+}

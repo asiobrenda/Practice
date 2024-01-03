@@ -1,0 +1,24 @@
+ table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 60%;
+    }
+
+   th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    background-color: #020079;
+    color: white; /* Use 'color' to set the font color */
+}
+
+
+    td {
+      border: 1px solid #dddddd;
+      padding: 8px;
+    }
+
+/* Apply pointer cursor to table rows */
+tr:hover {
+    cursor: pointer !important; /* Use !important to override other conflicting styles */
+}

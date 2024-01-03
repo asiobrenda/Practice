@@ -1,0 +1,45 @@
+{% extends 'base_practice.html' %}
+{% load static %}
+
+{% block title %}
+   <title>SIGN_UP</title>
+{% endblock title %}
+
+
+{% block navigation_links %}
+<li class="active"><a href="#">Home</a></li>
+ {% endblock navigation_links %}
+
+{% block navigation_links1 %}
+ <li class="login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+{% endblock navigation_links1 %}
+
+{% block additional_styles %}
+     {{ block.super }}
+    <link href="{% static 'styles/style7.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/signup.css' %}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock additional_styles %}
+<br>
+{% block body %}
+
+<h1>WELCOME TO MY SIGN UP PAGE</h1>
+<br>
+<br>
+<div class="centered-form">
+  <form method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+    <p>
+      {{ field.label_tag }}
+      {{ field }}
+      {% for error in field.errors %}
+        <span class="error">{{ error }}</span>
+      {% endfor %}
+    </p>
+  {% endfor %}
+
+    <button type="submit" class="button">SUBMIT</button>
+  </form>
+</div>
+{% endblock body %}

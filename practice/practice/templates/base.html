@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    {% block title %}
+     <title>BASE</title>
+    {% endblock title %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="{% static 'styles/customd.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/homef1.css' %}" rel="stylesheet">
+     {% block additional_styles %}{% endblock additional_styles %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|mytext">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script> <!-- This Javascript library is used for
+     animation -->
+    <!-- Include jQuery -->
+
+
+</head>
+<body>
+ <!-- navbar  -->
+   <nav class="navbar navbar-dark">
+  <div class="container-fluid">
+      <!-- beginning of elements on the navbar that are on the leftside -->
+    <div class="navbar-header">
+        {% block head %}
+      <a class="navbar-brand" href="#">Brenda's</a>
+        {% endblock head %}
+    </div>
+    <ul class="nav navbar-nav">
+        {% block navigation_links %}
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#contact">Contact Us<span class="caret"></span></a>
+      </li>
+      <li class="about"><a href="#profile">About</a></li>
+        {% endblock navigation_links %}
+
+    </ul>
+      <!-- end of elements on navbar that are on the leftside -->
+
+      <!--  When user is logged in -->
+    {% if user.is_authenticated %}
+    <ul class="nav navbar-nav navbar-right">
+          {% block navigation_links11 %}{% endblock navigation_links11 %}
+           <li class="log"><a href="{% url 'brenda:logout' %}"><span class="bx bx-log-out" style='color:#0e0d0d'></span> Log Out </a></li>
+    </ul>
+      <!-- end of when user is logged in -->
+
+      <!-- When user is not logged in -->
+    {% else %}
+    <ul class="nav navbar-nav navbar-right">
+           {% block navigation_links1 %}
+            <li class="sign"><a href="{% url 'brenda:SignUp' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li class="login"><a href="{% url 'brenda:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+           {% endblock navigation_links1 %}
+    </ul>
+    {% endif %}
+  </div>
+</nav>
+
+
+ <!-- beginning of body/background picture -->
+{% block body %}
+
+   <div class="bg-image1">
+   <div class="mytext">
+          <!--<p class="display-6 color-d">Hello, world!</p>-->
+          <h1>I am Asio Brenda</h1>
+          <p><span class="typed" id="typed-element"></span></p>
+
+          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+  </div>
+  </div>
+ <!-- blurred background
+   <div class="bg-text">
+        <h2>Blurred Background</h2>
+        <h1 style="font-size:50px">I am Asio Brenda</h1>
+        <p>And I'm a software Engineer</p>
+   </div>
+   -->
+
+
+   <!-- Additional content below the image -->
+
+    {% block sub_body %}
+    {% endblock sub_body%}
+{% endblock body %}
+
+ <!-- This code uses the typed.js library to make the animations -->
+<script>
+  var typed = new Typed('#typed-element', {
+    strings: ["Economist", "Developer", "Finance","Statistician"], // The array of strings to be typed
+    typeSpeed: 40,  // Typing speed in milliseconds
+    backSpeed: 50,  // Backspacing speed in milliseconds
+    backDelay: 1000, // Delay before starting to backspace
+    startDelay: 1000, // Delay before starting the animation
+    loop: true,     // Loop the animation
+  });
+</script>
+
+<script type="text/javascript">
+
+     var csrftoken = Cookies.get('csrftoken');
+            function csrfSafeMethod(method) {
+              // these HTTP methods do not require CSRF protection
+              return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+            $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+              }
+            });
+
+  $(document).ready(function () {
+
+
+     {% block domready %}
+     {% endblock %}
+  });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.bg-image {
+  background-image: url('../styles/image/asio1.png');
+ /* Set a background color for the login page */
+}
+
+.bg-text {
+  background: none; /* Fallback color */
+  background: none; /* Black w/opacity/see-through */
+  color: none;
+  font-weight: none;
+  border: none;
+  position: none;
+  top: none;
+  left: none;
+  transform: none;
+  z-index: none;
+  width: none;
+  padding: none;
+  text-align: none;
+}
+
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  flex-direction: column; /* This centers the content vertically */
+  text-align: center; /* This centers the content horizontally */
+}
+
+/* Optional: Add some styles to your headings */
+h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #ff5b00;
+}
+
+h3 {
+  font-size: 20px;
+  color: #ff5b00;
+}

@@ -1,0 +1,30 @@
+.button {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1000px;
+}
+/* CSS */
+.button-10 {
+  padding: 6px 14px;
+  margin: 3px; /* Reset any default margin */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  width:80px;
+
+  color: #fff;
+  background: red;
+   background-origin: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-10:focus {
+  /*box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);*/
+  outline: 0;
+}
