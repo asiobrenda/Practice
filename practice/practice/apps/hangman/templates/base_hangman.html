@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    {%block title %}
+    <title>HANGMAN</title>
+    {% endblock title %}
+
+
+    <link href="{% static 'hangman/home.css' %}" rel="stylesheet">
+    {% block links %}{% endblock links %}
+</head>
+<body>
+  <nav class="navbar">
+
+      <li class="game">HangMangame</li>
+
+          <ul>
+              {% block navbar %}
+              <li>Home</li>
+              <li>Play</li>
+              <li>Invite your friend</li>
+
+       {% endblock navbar %}
+          </ul>
+  </nav>
+  <br>
+{%  block sub_body %}
+<div class="call">
+    <h3>Solicit your friends to play!</h3>
+    <br><br>
+    <form method="POST">
+        {% csrf_token %}
+        Enter word:
+        <input type="text" name="word">
+        <br><br>
+        <button type="submit">Start Game</button>
+
+    </form>
+</div>
+
+{%  endblock sub_body %}
+</body>
+</html>

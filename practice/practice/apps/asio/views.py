@@ -20,27 +20,27 @@ def load_data(request):
     pdu = AlgoUE()
     print(pdu)
     pdu.upload_data_to_database()
-    return render(request, 'asio/load_data.html', {'varx': varx})
+    # return render(request, 'asio/load_data.html', {'varx': varx})
 
-# def get_data(request):
-#     source_name = request.POST.get('source')
-#     source_ = Source.objects.get(type=source_name)
-#     print(source_)
-#     products_ = Product.objects.all()
-#     print(products_)
-#     p_ = products_[0]
-#     print('-------' * 30)
-#     print(p_)
-#     years = YearData.objects.filter(source=source_, product=p_)
-#     print(years)
-#
-#     # year_data_ = YearData.objects.filter(source__type=source_name)
-#     return render(request, 'asio/get_data.html', {
-#         'products': products_,
-#         'years': years,
-#         'source': source_
-#         # ,
-#         # 'year_data': year_data_
-#     })
+def get_data(request):
+    source_name = request.POST.get('source')
+    source_ = Source.objects.get(type=source_name)
+    print(source_)
+    products_ = Product.objects.all()
+    print(products_)
+    p_ = products_[0]
+    print('-------' * 30)
+    print(p_)
+    years = YearData.objects.filter(source=source_, product=p_)
+    print(years)
+
+    # year_data_ = YearData.objects.filter(source__type=source_name)
+    return render(request, 'asio/get_data.html', {
+        'products': products_,
+        'years': years,
+        'source': source_
+        # ,
+        # 'year_data': year_data_
+    })
 
 

@@ -25,6 +25,13 @@ urlpatterns = [
     path('a/', include('practice.apps.asio.urls')),
     path('c/', include('practice.apps.core.urls')),
     path('t/', include('practice.apps.tabs.urls')),
+    path('f/', include('practice.apps.foodapp.urls')),
+    path('b/', include('practice.apps.blog.urls')),
+    path('h/', include('practice.apps.hangman.urls')),
+    path('bk/', include('practice.apps.banking.urls')),
+    path('l/', include('practice.apps.loans.urls')),
+    path('d/', include('practice.asapps.analysis.urls')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

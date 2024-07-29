@@ -1,0 +1,71 @@
+{% extends 'base_hangman.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>PLAY</title>
+{% endblock title %}
+
+{% block navbar %}
+    <li><a href="{% url 'hangman:home' %}">Home</a></li>
+{% endblock navbar %}
+
+{% block links %}
+<link href="{% static 'hangman/play3.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block sub_body %}
+    <h3>Start the Game!</h3>
+    <h4>Hangman</h4>
+    <form method="POST">
+        {% csrf_token %}
+        Enter a letter:
+        <br><br>
+        <input type="text" name="letter" maxlength="1">
+        <br><br>
+        <button type="submit">Guess</button>
+    </form>
+    <br><br>
+    <p><span>Attempts left:</span> {{game.attempts_left}}</p>
+    <p><span>Guessed letters:</span> {{game.guessed_letters}}</p>
+<p class="word_display">
+    {% for letter in game.word %}
+       {% if letter|lower in game.guesed_letters|lower %}
+          {{letter}}
+       {% else %}
+           {% if game.attempts_left == 0 %}
+               {{letter}}
+           {% else %}
+              -
+        {% endif %}
+       {% endif %}
+    {% endfor %}
+
+</p>
+ {% if feedback %}
+        <p>{{feedback}}</p>
+    {% endif %}
+<br><br>
+<a href="{% url 'hangman:home' %}">
+<button type="submit" name="play_again" value="1" style="margin-left:530px;">Play again!</button>
+
+</a>
+  <br>
+<div class="img">
+    {% if game.attempts_left == 6 %}
+       <img src="{% static 'hangman/images/hang1.jpg' %}" alt="Hangman">
+    {% elif game.attempts_left == 5 %}
+        <img src="{% static 'hangman/images/hang5.gif' %}" alt="Hangman">
+     {% elif game.attempts_left == 4 %}
+        <img src="{% static 'hangman/images/hang6.gif' %}" alt="Hangman">
+      {% elif  game.attempts_left == 3 %}
+        <img src="{% static 'hangman/images/hang7.gif' %}" alt="Hangman">
+       {% elif game.attempts_left == 2 %}
+        <img src="{% static 'hangman/images/hang8.gif' %}" alt="Hangman">
+       {% elif game.attempts_left == 1 %}
+        <img src="{% static 'hangman/images/hang9.gif' %}" alt="Hangman">
+      {% else %}
+        <img src="{% static 'hangman/images/hang10.gif' %}" alt="Hangman">
+    {% endif %}
+  </div>
+{% endblock sub_body %}

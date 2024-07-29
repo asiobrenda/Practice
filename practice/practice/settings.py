@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'practice.apps.asio',
     'practice.apps.core',
     'practice.apps.tabs',
+    'practice.apps.foodapp',
+    'practice.apps.blog',
+    'practice.apps.hangman',
+    'practice.apps.banking',
+    'practice.apps.loans',
+    'practice.asapps.analysis',
     'easy_thumbnails',
 ]
 
@@ -77,8 +83,8 @@ WSGI_APPLICATION = 'practice.wsgi.application'
 
 AUTH_USER_MODEL = 'brenda.SignUpUser'
 
-LOGIN_REDIRECT_URL = '/'
 
+LOGIN_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Database
@@ -154,3 +160,10 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "asiobrenda01@gmail.com"
 EMAIL_HOST_PASSWORD = "acmd zcfi psyw pvcv"
 EMAIL_USE_TLS = True
+
+
+
+# # settings.py
+# # settings.py
+# MAILJET_API_KEY = "2bb8ecae9b9344a6618f6ed73c257d38"
+# MAILJET_API_SECRET = "8a1aa51bce88b0440b45c9c7bb2b5d6f"

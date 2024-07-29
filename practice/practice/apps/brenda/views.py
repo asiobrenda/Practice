@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 #from django.http import HttpResponse
 from .forms import SignUpCreationForm
-from.models import (Home, Biography, Skills, Services, Portfolio, Testimonial, Contact)
+from .models import (Home, Biography, Skills, Services, Portfolio, Testimonial, Contact)
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.db import connection
@@ -9,6 +9,8 @@ from django.apps import apps
 from django.http import JsonResponse
 import threading
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+#from .utils import send_email_async
 
 def index(request, category=None):
     skills = Skills.objects.all()
@@ -28,9 +30,15 @@ def index(request, category=None):
                                                 'testimonial':testimonial})
 
 
-def send_email_async(subject, message, email):
-    # Define a function to send an email in a separate thread
-    threading.Thread(target=send_mail, args=(subject, message, email, ['asiobrenda01@gmail.com'])).start()
+def send_email_async(subject, message, from_email, to_email):
+    email = EmailMessage(
+        subject,
+        message,
+        from_email,
+        [to_email],
+        headers={'Reply-To': from_email}
+    )
+    threading.Thread(target=email.send).start()
 
 def contact(request):
     if request.method == "POST":
@@ -49,7 +57,7 @@ def contact(request):
                 message=contact_message,
             )
             # Send email in a separate thread
-            send_email_async(contact_subject, contact_message, contact_email)
+            send_email_async(contact_subject, contact_message, contact_email, 'asiobrenda01@gmail.com')
 
             return_message = {'status': 'ok', 'message': 'Data received successfully'}
         return JsonResponse(return_message)
@@ -81,18 +89,18 @@ def sign_up(request):
     # return render(request, 'brenda/home.html', {'skills':skills})
 
 
-def truncate_skills(request, table_name):
-    if request.user.is_staff:
-        try:
-            # Get the model class associated with the table name
-            model_class = apps.get_model(app_label='brenda', model_name=table_name)
-
-            # Truncate the table associated with the model
-            with connection.cursor() as cursor:
-                cursor.execute(f'TRUNCATE TABLE {model_class._meta.db_table} RESTART IDENTITY CASCADE')
-
-            return HttpResponse(f'{table_name} table truncated successfully.')
-        except LookupError:
-            return HttpResponse(f'Table {table_name} not found.', status=404)
-    else:
-        return HttpResponse("Permission denied.", status=403)
+# def truncate_skills(request, table_name):
+#     if request.user.is_staff:
+#         try:
+#             # Get the model class associated with the table name
+#             model_class = apps.get_model(app_label='brenda', model_name=table_name)
+#
+#             # Truncate the table associated with the model
+#             with connection.cursor() as cursor:
+#                 cursor.execute(f'TRUNCATE TABLE {model_class._meta.db_table} RESTART IDENTITY CASCADE')
+#
+#             return HttpResponse(f'{table_name} table truncated successfully.')
+#         except LookupError:
+#             return HttpResponse(f'Table {table_name} not found.', status=404)
+#     else:
+#         return HttpResponse("Permission denied.", status=403)

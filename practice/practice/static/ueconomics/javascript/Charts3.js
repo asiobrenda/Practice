@@ -12,7 +12,6 @@ function reset_btns_colors() {
 function change_chart_type(event, type) {
 //alert(type)
     reset_btns_colors();
-
     var clicked_btn = event.target;
     clicked_btns.push(clicked_btn);
     clicked_btn.style.color = "blue";

@@ -2,10 +2,9 @@
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.5); /* Adjust the hover shadow values as needed */
     display: flex;
     justify-content: center;
-    margin-top: 65px;
+    margin-top: 100px;
     margin-bottom: 100px;
-    margin-right: 400px;
-    margin-left: 200px;
+    margin-left: 370px;
     width: 1000px;
     position: relative; /* Enable relative positioning for .decription */
     z-index: 1;
@@ -100,9 +99,9 @@
 }
 
 
-.decription {
+.description {
     position: absolute; /* Position .decription absolutely */
-    top: 60px; /* Position it at the top of .aboutme */
+    top: 90px; /* Position it at the top of .aboutme */
     right: 20px; /* Align it to the right within .aboutme */
     max-width: 70%; /* Set a fixed width for .decription */
     padding: 20px; /* Add padding for content */

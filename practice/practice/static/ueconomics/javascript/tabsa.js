@@ -11,6 +11,5 @@ function openCity(evt, source) {
   document.getElementById(source).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();

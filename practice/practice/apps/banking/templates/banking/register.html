@@ -1,0 +1,13 @@
+{% extends 'base_banking.html' %}
+
+{% block title %}
+<title>REGISTER</title>
+{% endblock title %}
+
+
+{% block body %}
+<form method="POST">
+   {% csrf_token %}
+   {{form.as_p}}
+</form>
+{% endblock body %}

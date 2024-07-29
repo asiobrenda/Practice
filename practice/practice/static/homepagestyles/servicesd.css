@@ -11,7 +11,7 @@
 .row {
     display: flex; /* To apply the shadow properly */
     border-radius: 200px; /* Add rounded corners if desired */
-    margin-left: 380px;
+    margin-left: 500px;
     margin-top: 40px;
     max-width: 300px;
 }

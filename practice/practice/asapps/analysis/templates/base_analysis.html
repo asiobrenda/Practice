@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>DATA-ANALYSIS</title>
+    <link href="{% static 'analysis/css/style.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script> var staticUrl = "{% static 'analysis/images/download.jpeg' %}"</script>
+</head>
+<body id="body">
+
+<script src="{% static 'js/js.cookie.min.js' %}"></script>
+<script type="text/javascript">
+
+     var csrftoken = Cookies.get('csrftoken');
+            function csrfSafeMethod(method) {
+              // these HTTP methods do not require CSRF protection
+              return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+            $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+              }
+            });
+
+     var body = document.getElementById('body');
+     var add_tab = "{% url 'analysis:add_tab' %}";
+     var get_data = "{% url 'analysis:get_data' %}";
+     var delete_tab = "{% url 'analysis:delete_tab' %}";
+     var add_btn_url = "{% url 'analysis:add_btn' %}";
+     var get_add_btn_ = "{% url 'analysis:get_add_btn' %}";
+     var delete_sub_tab_ = "{% url 'analysis:delete_sub_tab_' %}";
+     var get_btn_id = "{% url 'analysis:get_next_btn_id' %}";
+     var cloned_btn = "{% url 'analysis:cloned_btn' %}";
+     var get_cloned_btn = "{% url 'analysis:get_cloned_btn' %}";
+     var get_cloned_data = "{% url 'analysis:get_cloned_data' %}";
+
+
+     var dic = {'body_': body, 'add_tab_':add_tab,'get_data_url':get_data,'delete_tab_url':delete_tab,
+      'add_btn':add_btn_url, 'get_add_btn':get_add_btn_, 'delete_sub_tab':delete_sub_tab_, 'get_btn_id':get_btn_id,
+        'cloned_btn':cloned_btn,'get_cloned_btn':get_cloned_btn, 'get_cloned_data': get_cloned_data}
+
+     $(document).ready(function () {
+
+
+     var admin = new Admin(dic);
+     admin.call_elements(dic);
+  });
+    </script>
+
+
+<script src="{% static 'analysis/js/tabs.js' %}"></script>
+</body>
+</html>

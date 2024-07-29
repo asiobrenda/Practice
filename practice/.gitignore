@@ -1,0 +1,12 @@
+# Ignore SQLite database file
+*.sqlite3
+
+# Ignore local development settings
+#myproject/settings/local.py
+
+# Ignore media and static directories (if needed)
+media
+static
+
+# Ignore a specific Django app (replace 'myapp' with your app's actual name)
+foodapp
