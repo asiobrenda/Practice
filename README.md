@@ -1,2 +1,2 @@
-# Portfolio-website
-Launched the initial product for this portfolio website.
+# Practice Project
+This project includes some of my favourite work am currently developing.
